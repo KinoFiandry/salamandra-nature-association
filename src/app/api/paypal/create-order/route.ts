@@ -7,8 +7,20 @@ const PAYPAL_API_URL = process.env.PAYPAL_ENV === "production"
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { amount, currency = "EUR", donorName, donorEmail } = body;
+    const bodyText = await request.text();
+    if (!bodyText) {
+      return NextResponse.json({ error: "Empty request body" }, { status: 400 });
+    }
+    
+    let body;
+    try {
+      body = JSON.parse(bodyText);
+    } catch (e) {
+      console.error("JSON parse error on body:", bodyText);
+      return NextResponse.json({ error: "Invalid JSON in request body" }, { status: 400 });
+    }
+    
+    const { amount, currency = "EUR", donorName = "Anonymous", donorEmail = "donor@example.com" } = body;
 
     if (!amount || amount <= 0) {
       return NextResponse.json(
@@ -19,10 +31,6 @@ export async function POST(request: NextRequest) {
 
     const accessToken = await generateAccessToken();
 
-    const host = request.headers.get("host");
-    const protocol = host?.includes("localhost") || host?.includes("orchids.cloud") ? "https" : "https"; // Orchids and local usually use https or can be forced
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || `${protocol}://${host}`;
-
     const orderPayload = {
       intent: "CAPTURE",
       purchase_units: [
@@ -32,16 +40,24 @@ export async function POST(request: NextRequest) {
             value: amount.toFixed(2),
           },
           description: "Donation to Madagascar Turtle Conservation",
-          custom_id: JSON.stringify({ donorName, donorEmail }),
+          custom_id: `donation_${Date.now()}`,
         },
       ],
+      payer: {
+        email_address: donorEmail,
+        name: {
+          given_name: donorName.split(" ")[0] || "Anonymous",
+          surname: donorName.split(" ").slice(1).join(" ") || "Donor",
+        },
+      },
       payment_source: {
-        card: {
+        paypal: {
           experience_context: {
-            return_url: `${baseUrl}/donate?success=true`,
-            cancel_url: `${baseUrl}/donate?cancelled=true`,
+            brand_name: "Salamandra Nature",
             shipping_preference: "NO_SHIPPING",
             user_action: "PAY_NOW",
+            return_url: "https://example.com/return",
+            cancel_url: "https://example.com/cancel",
           },
         },
       },

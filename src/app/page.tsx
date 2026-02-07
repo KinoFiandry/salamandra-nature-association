@@ -3,69 +3,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useI18n } from "@/lib/i18n";
+import { supabase } from "@/lib/supabase";
 import { motion } from "framer-motion";
 import { Shield, BookOpen, Search, ArrowRight, Heart, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from 'embla-carousel-react';
 
-const teamMembers = [
-  {
-    name: "Pr ALBIGNAC Roland",
-    role: { en: "Honorary President", fr: "Président d’honneur" },
-    bio: { 
-      en: "Honorary Professor at Universities in France and Madagascar, UNDP / UNESCO Expert Consultant.",
-      fr: "Professeur honoraire des Universités en France et à Madagascar, Consultant Expert PNUD / UNESCO."
-    },
-    image: "/images/pr-roland.jpg"
-  },
-  {
-    name: "M. RAZAFINDRAKOTO Andriamampiandry Léon",
-    role: { en: "President and Co-founder", fr: "Président et co-fondateur" },
-    bio: {
-      en: "Director of Dayu Biik, manager of the Thönyë Protected Natural Area in Hienghène, New Caledonia, IUCN Expert for Tortoise and Freshwater Turtle Group, member of the IUCN Economic, Social and Environmental Policy Commission.",
-      fr: "Directeur de Dayu Biik, gestionnaire de l’Aire Naturelle Protégée du Thönyë à Hienghène en Nouvelle-Calédonie, Expert UICN Groupe Tortues terrestres et d’eau douce, membre de la Commission de la Politique Économique, Sociale et Environnementale de l’UICN."
-    },
-    image: "/images/leon.jpg"
-  },
-  {
-    name: "M. GAUTHIER Frank",
-    role: { en: "General Secretary", fr: "Secrétaire Général" },
-    bio: {
-      en: "Environmental Technician at the French Biodiversity Office in Corsica.",
-      fr: "Technicien en Environnement à l’Office Français de la Biodiversité en Corse."
-    },
-    image: "/images/franck-gauthier.jpg"
-  },
-  {
-    name: "Mme GAUTHIER Maude",
-    role: { en: "Treasurer", fr: "Trésorière" },
-    bio: {
-      en: "School teacher in Corsica.",
-      fr: "Professeur des écoles en Corse."
-    },
-    image: "/images/maud-gauthier.jpg"
-  },
-  {
-    name: "MAUGUIN Camille",
-    role: { en: "Communications Officer", fr: "Chargée de la Communication" },
-    bio: {
-      en: "Freelance graphic designer in Nièvre.",
-      fr: "Graphiste indépendante dans la Nièvre."
-    },
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400"
-  },
-  {
-    name: "Mlle RAHOLISON Anjara Malala",
-    role: { en: "Madagascar Representative", fr: "Représentante de Salamandra Nature à Madagascar" },
-    bio: {
-      en: "Communications Manager at NGO Génération Mada, Advisor to the NGO Y’DAGO.",
-      fr: "Responsable Communication ONG Génération Mada, Conseillère de l’ONG Y’DAGO."
-    },
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=400"
-  }
-];
-
 function TeamMemberCard({ member, language, index }: { member: any, language: string, index: number }) {
   const [isExpanded, setIsExpanded] = React.useState(false);
+  const role = language === 'fr' ? member.role_fr : member.role_en;
+  const bio = language === 'fr' ? member.bio_fr : member.bio_en;
   
   return (
     <motion.div
@@ -77,7 +23,7 @@ function TeamMemberCard({ member, language, index }: { member: any, language: st
     >
       <div className="h-64 overflow-hidden relative flex-shrink-0">
         <img 
-          src={member.image} 
+          src={member.photo_url || '/images/placeholder.jpg'} 
           alt={member.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
@@ -85,12 +31,12 @@ function TeamMemberCard({ member, language, index }: { member: any, language: st
       </div>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-lg font-black text-sage-800 mb-1 line-clamp-2">{member.name}</h3>
-        <p className="text-terracotta-600 font-bold text-sm mb-4 min-h-[40px]">{member.role[language as 'en' | 'fr']}</p>
+        <p className="text-terracotta-600 font-bold text-sm mb-4 min-h-[40px]">{role}</p>
         <div className="relative">
           <p className={`text-sage-700/60 text-sm leading-relaxed ${!isExpanded ? 'line-clamp-4' : ''}`}>
-            {member.bio[language as 'en' | 'fr']}
+            {bio}
           </p>
-          {member.bio[language as 'en' | 'fr'].length > 150 && (
+          {bio && bio.length > 150 && (
             <button 
               onClick={(e) => {
                 e.stopPropagation();
@@ -202,6 +148,27 @@ function TeamCarousel({ teamMembers, language }: { teamMembers: any[], language:
 
 export default function Home() {
   const { t, language } = useI18n();
+  const [teamMembers, setTeamMembers] = useState<any[]>([]);
+  const [newsItems, setNewsItems] = useState<any[]>([]);
+
+  useEffect(() => {
+    supabase
+      .from("group_members")
+      .select("*")
+      .order("display_order", { ascending: true })
+      .then(({ data }) => {
+        if (data) setTeamMembers(data);
+      });
+
+    supabase
+      .from("news")
+      .select("*")
+      .order("created_at", { ascending: false })
+      .limit(2)
+      .then(({ data }) => {
+        if (data) setNewsItems(data);
+      });
+  }, []);
 
   const container = {
     hidden: { opacity: 0 },
@@ -341,7 +308,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured News Preview (Static for now, but uses i18n keys) */}
+      {/* Featured News Preview */}
       <section className="py-24 bg-sage-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
@@ -354,33 +321,34 @@ export default function Home() {
             </Link>
           </div>
           
+          {newsItems.length > 0 ? (
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Placeholder News Cards */}
-              <div className="group bg-white rounded-[2rem] overflow-hidden border border-sage-100 shadow-sm hover:shadow-xl transition-all">
-                <div className="h-64 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=1000" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="News" />
+              {newsItems.map((item) => (
+                <div key={item.id} className="group bg-white rounded-[2rem] overflow-hidden border border-sage-100 shadow-sm hover:shadow-xl transition-all">
+                  <div className="h-64 overflow-hidden">
+                    <img
+                      src={item.image_url || 'https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=1000'}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      alt={language === 'fr' ? item.title_fr : item.title_en}
+                    />
+                  </div>
+                  <div className="p-8">
+                    <h3 className="text-xl font-bold text-sage-800 mb-4">
+                      {language === 'fr' ? item.title_fr : item.title_en}
+                    </h3>
+                    <p className="text-sage-700/60 mb-6 line-clamp-2">
+                      {language === 'fr' ? item.content_fr : item.content_en}
+                    </p>
+                    <Link href="/news" className="inline-flex items-center gap-2 text-terracotta-600 font-bold group/link">
+                      {t('news.readMore')} <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold text-sage-800 mb-4">Protecting Radiated Tortoise Habitats</h3>
-                  <p className="text-sage-700/60 mb-6 line-clamp-2">We have launched a new initiative to protect critical dry forest habitats in the Androy region, ensuring safe zones for endangered tortoise species.</p>
-                  <Link href="/news" className="inline-flex items-center gap-2 text-terracotta-600 font-bold group/link">
-                    Read More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-              <div className="group bg-white rounded-[2rem] overflow-hidden border border-sage-100 shadow-sm hover:shadow-xl transition-all">
-                <div className="h-64 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1518467166778-b88f373ffec7?q=80&w=1000" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="News" />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold text-sage-800 mb-4">Community Workshop in Toliara</h3>
-                  <p className="text-sage-700/60 mb-6 line-clamp-2">Local leaders gathered in Toliara to discuss sustainable conservation practices and land management for turtle protection.</p>
-                  <Link href="/news" className="inline-flex items-center gap-2 text-terracotta-600 font-bold group/link">
-                    Read More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
+              ))}
             </div>
+          ) : (
+            <p className="text-sage-700/60 text-center py-12">{t('news.noNews')}</p>
+          )}
         </div>
       </section>
 

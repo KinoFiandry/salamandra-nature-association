@@ -1,0 +1,2695 @@
+2026-02-07T05:51:47.584Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                        <ClientPageRoot Component={function Home} searchParams={{}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div data-orchids-id="src\app\pa..." data-orchids-name="div" className="min-h-scre...">
+                              ...
+                                <a data-orchids-id="src\app\pa..." data-orchids-name="Link" className="bg-white/1..." ...>
+                                  <ArrowRight data-orchids-id="src\app\pa..." data-orchids-name="ArrowRight" ...>
+                                    <svg
+                                      ref={null}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width={24}
+                                      height={24}
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      strokeWidth={2}
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      className="lucide lucide-arrow-right w-5 h-5"
+                                      aria-hidden="true"
+                                      data-orchids-id="src\app\page.tsx:263:16"
+                                      data-orchids-name="ArrowRight"
+-                                     data-orchid-ref="ref-iiy9grlhtu"
+                                    >
+                                      <path
+                                        d="M5 12h14"
+-                                       data-orchid-ref="ref-32vr0g7x8q"
+                                      >
+                                      <path
+                                        d="m12 5 7 7-7 7"
+-                                       data-orchid-ref="ref-skyv0hxsa7"
+                                      >
+                              <section
+                                data-orchids-id="src\app\page.tsx:271:6"
+                                data-orchids-name="section"
+                                className="py-20 bg-sage-950 text-white"
+-                               data-orchid-ref="ref-ebaf8fye44"
+                              >
+                                <div
+                                  data-orchids-id="src\app\page.tsx:272:8"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 s... [truncated]
+2026-02-07T06:01:08.503Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-rgyglej22m"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en">
+                        <body
+                          data-orchids-id="src\app\layout.tsx:22:6"
+                          data-orchids-name="body"
+                          className="antialiased font-sans"
+-                         data-orchid-ref="ref-jo04xnxguo"
+                        >
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-7mh75hiev2"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-9xmdpjuzw0"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-j7oy3j346u"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     da... [truncated]
+2026-02-07T06:14:27.674Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-8dh34tqqim"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en">
+                        <body
+                          data-orchids-id="src\app\layout.tsx:22:6"
+                          data-orchids-name="body"
+                          className="antialiased font-sans"
+-                         data-orchid-ref="ref-n8i2hr4141"
+                        >
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-1w8oqw2seo"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-traf5gcy4d"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-nvoaob4aoq"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     da... [truncated]
+2026-02-07T06:15:07.702Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                        <ClientPageRoot Component={function Home} searchParams={{}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
+                              data-orchids-id="src\app\page.tsx:222:4"
+                              data-orchids-name="div"
+                              className="min-h-screen bg-white"
+-                             data-orchid-ref="ref-54ajwxuoul"
+                            >
+                              <section
+                                data-orchids-id="src\app\page.tsx:224:8"
+                                data-orchids-name="section"
+                                className="relative h-[90vh] flex items-center overflow-hidden"
+-                               data-orchid-ref="ref-ecv7nz5fye"
+                              >
+                                <div
+                                  data-orchids-id="src\app\page.tsx:225:10"
+                                  data-orchids-name="div"
+                                  className="absolute inset-0 z-0"
+-                                 data-orchid-ref="ref-6mk1uc486f"
+                                >
+                                  <img
+                                    data-orchids-id="src\app\page.tsx:226:12"
+                                    data-orchids-name="img"
+                                    src="/images/baobab.jpg"
+                                    alt="Baobab trees Avenue of the Baobabs Madagascar"
+                                    className="w-full h-full object-cover brightness-[0.35]"
+-                                   data-orchid-ref="ref-q6eyr4zkhm"
+                                  >
+                                  <div
+                                    data-orchids-id="src\app\page.tsx:232:12"
+                                    data-orchids-name="div"
+                                    className="absolute inset-0 bg-gradient-to-t from-terracotta-950/60 via-sage-900/3..."
+-                                   data-orchid-ref="ref-r68hcv2pxb"
+                                  >
+                                <div
+                                  data-orchids-id="src\app\page.tsx:236:10"
+                                  data-orchids-name="div"
+                                  className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white"
+-                                 data-orchid-ref="ref-busfukuesr"
+                                >
+                                  <motion.div data-orchids-id="src\... [truncated]
+2026-02-07T06:15:35.438Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+      <ReplaySsrOnlyErrors>
+      <DevRootHTTPAccessFallbackBoundary>
+        <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <Head>
+                <link>
+                <script>
+                <script>
+                <script>
+                <RootLayout>
+                  <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en">
+                    <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase...">
+                      <Script>
+                      <ErrorReporter>
+                      <Script>
+                      <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                        <VisitTracker>
+                        <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                          <nav data-orchids-id="src\compon..." data-orchids-name="nav" className="bg-white/8...">
+                            <div data-orchids-id="src\compon..." data-orchids-name="div" className="max-w-7xl ...">
+                              <div data-orchids-id="src\compon..." data-orchids-name="div" className="flex justi...">
+                                <div>
+                                <div data-orchids-id="src\compon..." data-orchids-name="div" className="hidden md:...">
+                                  <div>
+                                  <div data-orchids-id="src\compon..." data-orchids-name="div" className="flex items...">
+                                    <LanguageSwitcher data-orchids-id="src\compon..." data-orchids-name="LanguageSw...">
+                                      <div data-orchids-id="src\compon..." data-orchids-name="div" ...>
+                                        <button
+                                          data-orchids-id="src\components\LanguageSwitcher.tsx:10:6"
+                                          data-orchids-name="button"
+                                          onClick={function onClick}
+                                          className="px-3 py-1 rounded-full text-xs font-bold transition-all bg-emeral..."
+-                                         data-orchid-ref="ref-zmi0jl9ed7"
+                                        >
++                                         EN
+                                        <button
+                                          data-orchids-id="src\components\LanguageSwitcher.tsx:20:6"
+                                          data-orchids-name="button"
+                                          onClick={function onClick}
+                                          className="px-3 py-1 rounded-full text-xs font-bold transition-all text-emer..."
+-                                         data-orchid-ref="ref-z6yxi16o7j"
+                                        >
++                                         FR
+                                    <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" ...>
+                                      <a
+    ... [truncated]
+2026-02-07T06:15:35.438Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+      <ReplaySsrOnlyErrors>
+      <DevRootHTTPAccessFallbackBoundary>
+        <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <Head>
+                <link>
+                <script>
+                <script>
+                <script>
+                <RootLayout>
+                  <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en">
+                    <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase...">
+                      <Script>
+                      <ErrorReporter>
+                      <Script>
+                      <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                        <VisitTracker>
+                        <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                          <nav data-orchids-id="src\compon..." data-orchids-name="nav" className="bg-white/8...">
+                            <div data-orchids-id="src\compon..." data-orchids-nam...
+2026-02-07T06:01:08.503Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-rgyglej22m"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en">
+                        <body
+                          data-orchids-id="src\app\layout.tsx:22:6"
+                          data-orchids-name="body"
+                          className="antialiased font-sans"
+-                         data-orchid-ref="ref-jo04xnxguo"
+                        >
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-7mh75hiev2"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-9xmdpjuzw0"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-j7oy3j346u"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     da... [truncated]
+2026-02-07T06:14:27.674Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-8dh34tqqim"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en">
+                        <body
+                          data-orchids-id="src\app\layout.tsx:22:6"
+                          data-orchids-name="body"
+                          className="antialiased font-sans"
+-                         data-orchid-ref="ref-n8i2hr4141"
+                        >
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-1w8oqw2seo"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-traf5gcy4d"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-nvoaob4aoq"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     da... [truncated]
+2026-02-07T06:15:07.702Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                        <ClientPageRoot Component={function Home} searchParams={{}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
+                              data-orchids-id="src\app\page.tsx:222:4"
+                              data-orchids-name="div"
+                              className="min-h-screen bg-white"
+-                             data-orchid-ref="ref-54ajwxuoul"
+                            >
+                              <section
+                                data-orchids-id="src\app\page.tsx:224:8"
+                                data-orchids-name="section"
+                                className="relative h-[90vh] flex items-center overflow-hidden"
+-                               data-orchid-ref="ref-ecv7nz5fye"
+                              >
+                                <div
+                                  data-orchids-id="src\app\page.tsx:225:10"
+                                  data-orchids-name="div"
+                                  className="absolute inset-0 z-0"
+-                                 data-orchid-ref="ref-6mk1uc486f"
+                                >
+                                  <img
+                                    data-orchids-id="src\app\page.tsx:226:12"
+                                    data-orchids-name="img"
+                                    src="/images/baobab.jpg"
+                                    alt="Baobab trees Avenue of the Baobabs Madagascar"
+                                    className="w-full h-full object-cover brightness-[0.35]"
+-                                   data-orchid-ref="ref-q6eyr4zkhm"
+                                  >
+                                  <div
+                                    data-orchids-id="src\app\page.tsx:232:12"
+                                    data-orchids-name="div"
+                                    className="absolute inset-0 bg-gradient-to-t from-terracotta-950/60 via-sage-900/3..."
+-                                   data-orchid-ref="ref-r68hcv2pxb"
+                                  >
+                                <div
+                                  data-orchids-id="src\app\page.tsx:236:10"
+                                  data-orchids-name="div"
+                                  className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white"
+-                                 data-orchid-ref="ref-busfukuesr"
+                                >
+                                  <motion.div data-orchids-id="src\... [truncated]
+2026-02-07T06:15:35.438Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+      <ReplaySsrOnlyErrors>
+      <DevRootHTTPAccessFallbackBoundary>
+        <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <Head>
+                <link>
+                <script>
+                <script>
+                <script>
+                <RootLayout>
+                  <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en">
+                    <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase...">
+                      <Script>
+                      <ErrorReporter>
+                      <Script>
+                      <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                        <VisitTracker>
+                        <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                          <nav data-orchids-id="src\compon..." data-orchids-name="nav" className="bg-white/8...">
+                            <div data-orchids-id="src\compon..." data-orchids-name="div" className="max-w-7xl ...">
+                              <div data-orchids-id="src\compon..." data-orchids-name="div" className="flex justi...">
+                                <div>
+                                <div data-orchids-id="src\compon..." data-orchids-name="div" className="hidden md:...">
+                                  <div>
+                                  <div data-orchids-id="src\compon..." data-orchids-name="div" className="flex items...">
+                                    <LanguageSwitcher data-orchids-id="src\compon..." data-orchids-name="LanguageSw...">
+                                      <div data-orchids-id="src\compon..." data-orchids-name="div" ...>
+                                        <button
+                                          data-orchids-id="src\components\LanguageSwitcher.tsx:10:6"
+                                          data-orchids-name="button"
+                                          onClick={function onClick}
+                                          className="px-3 py-1 rounded-full text-xs font-bold transition-all bg-emeral..."
+-                                         data-orchid-ref="ref-zmi0jl9ed7"
+                                        >
++                                         EN
+                                        <button
+                                          data-orchids-id="src\components\LanguageSwitcher.tsx:20:6"
+                                          data-orchids-name="button"
+                                          onClick={function onClick}
+                                          className="px-3 py-1 rounded-full text-xs font-bold transition-all text-emer..."
+-                                         data-orchid-ref="ref-z6yxi16o7j"
+                                        >
++                                         FR
+                                    <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" ...>
+                                      <a
+    ... [truncated]
+2026-02-07T06:16:48.425Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                        <ClientPageRoot Component={function Home} searchParams={{}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div data-orchids-id="src\app\pa..." data-orchids-name="div" className="min-h-scre...">
+                              <section>
+                              <section>
+                              <section>
+                              <section data-orchids-id="src\app\pa..." data-orchids-name="section" ...>
+                                <div data-orchids-id="src\app\pa..." data-orchids-name="div" className="max-w-7xl ...">
+                                  <div data-orchids-id="src\app\pa..." data-orchids-name="div" className="flex justi...">
+                                    <div>
+                                    <LinkComponent data-orchids-id="src\app\pa..." data-orchids-name="Link" href="/news" ...>
+                                      <a
+                                        data-orchids-id="src\app\page.tsx:352:12"
+                                        data-orchids-name="Link"
+                                        className="text-terracotta-600 font-bold hover:underline flex items-center gap-1"
+                                        ref={function}
+                                        onClick={function onClick}
+                                        onMouseEnter={function onMouseEnter}
+                                        onTouchStart={function onTouchStart}
+                                        href="/news"
+-                                       data-orchid-ref="ref-kao7puxpxb"
+                                      >
+                                        <ArrowRight data-orchids-id="src\app\pa..." data-orchids-name="ArrowRight" ...>
+                                          <svg
+                                            ref={null}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width={24}
+                                            height={24}
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth={2}
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="lucide lucide-arrow-right w-4 h-4"
+              ... [truncated]
+2026-02-07T06:18:53.230Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                        <ClientPageRoot Component={function Home} searchParams={{}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
+                              data-orchids-id="src\app\page.tsx:222:4"
+                              data-orchids-name="div"
+                              className="min-h-screen bg-white"
+-                             data-orchid-ref="ref-9j7mchlna5"
+                            >
+                              <section
+                                data-orchids-id="src\app\page.tsx:224:8"
+                                data-orchids-name="section"
+                                className="relative h-[90vh] flex items-center overflow-hidden"
+-                               data-orchid-ref="ref-fo3s3elcf6"
+                              >
+                                <div
+                                  data-orchids-id="src\app\page.tsx:225:10"
+                                  data-orchids-name="div"
+                                  className="absolute inset-0 z-0"
+-                                 data-orchid-ref="ref-z5uiwk2qa7"
+                                >
+                                  <img
+                                    data-orchids-id="src\app\page.tsx:226:12"
+                                    data-orchids-name="img"
+                                    src="/images/baobab.jpg"
+                                    alt="Baobab trees Avenue of the Baobabs Madagascar"
+                                    className="w-full h-full object-cover brightness-[0.35]"
+-                                   data-orchid-ref="ref-kx8tcn1u4y"
+                                  >
+                                  <div
+                                    data-orchids-id="src\app\page.tsx:232:12"
+                                    data-orchids-name="div"
+                                    className="absolute inset-0 bg-gradient-to-t from-terracotta-950/60 via-sage-900/3..."
+-                                   data-orchid-ref="ref-5kluakm7ts"
+                                  >
+                                <div
+                                  data-orchids-id="src\app\page.tsx:236:10"
+                                  data-orchids-name="div"
+                                  className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white"
+-                                 data-orchid-ref="ref-z1r9mhvmq4"
+                                >
+                                  <motion.div data-orchids-id="src\... [truncated]
+2026-02-07T06:19:13.996Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                        <ClientPageRoot Component={function Home} searchParams={{}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div data-orchids-id="src\app\pa..." data-orchids-name="div" className="min-h-scre...">
+                              <section>
+                              ...
+                                <div data-orchids-id="src\app\pa..." data-orchids-name="motion.div" ...>
+                                  <motion.div data-orchids-id="src\app\pa..." data-orchids-name="motion.div" ...>
+                                    <div
+                                      data-orchids-id="src\app\page.tsx:286:14@item"
+                                      data-orchids-name="motion.div"
+                                      className="text-center"
+                                      style={{opacity:0,transform:"translateY..."}}
+                                      ref={function useMotionRef.useCallback}
+-                                     data-orchid-ref="ref-csryskxz69"
+                                    >
+                                      <div
+                                        data-orchids-id="src\app\page.tsx:287:16"
+                                        data-orchids-name="div"
+                                        className="text-4xl md:text-5xl font-black text-terracotta-400 mb-2"
+-                                       data-orchid-ref="ref-2clnoh0iyh"
+                                      >
++                                       15+
+                                      <div
+                                        data-orchids-id="src\app\page.tsx:288:16"
+                                        data-orchids-name="div"
+                                        className="text-sm md:text-base text-sage-200 font-medium uppercase tracking-w..."
+-                                       data-orchid-ref="ref-60g0gzm44c"
+                                      >
++                                       Years of Conservation
+                                  <motion.div data-orchids-id="src\app\pa..." data-orchids-name="motion.div" ...>
+                                    <div
+                                      data-orchids-id="src\app\page.tsx:286:14@item"
+                                      data-orchids-name="motion.div"
+                                      className="text-center"
+                                      style={{opacity:0,transform:"translateY..."}}
+                                      ref={function useMotionRe... [truncated]
+2026-02-07T06:20:37.796Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T06:20:46.323Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T06:19:13.996Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+                        <ClientPageRoot Component={function Home} searchParams={{}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div data-orchids-id="src\app\pa..." data-orchids-name="div" className="min-h-scre...">
+                              <section>
+                              ...
+                                <div data-orchids-id="src\app\pa..." data-orchids-name="motion.div" ...>
+                                  <motion.div data-orchids-id="src\app\pa..." data-orchids-name="motio...
+2026-02-07T06:52:20.450Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-qf571iwa8b"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-brnbsnpc5f"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-jm3hk05nn7"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-pp8qvs041p"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-9uerwo1moo"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name=... [truncated]
+2026-02-07T06:56:17.994Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-u6l5amfsjj"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-x3vkc6vb04"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-jwd348y444"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-ojlemcllst"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" href="/" ...>
+                                        <a
+                                          data-orchids-id="src\components\Navbar.tsx:35:14"
+                                          data-orchids-name="Link"
+                                          className="flex items-center gap-3 group"
+                                          ref={function}
+                                       ... [truncated]
+2026-02-07T06:56:33.946Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+      <ReplaySsrOnlyErrors>
+      <DevRootHTTPAccessFallbackBoundary>
+        <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <Head>
+                <link>
+                <script>
+                <script>
+                <script>
+                <RootLayout>
+                  <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                    <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                      <Script>
+                      <ErrorReporter>
+                      <Script>
+                      <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                        <VisitTracker>
+                        <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                          <nav data-orchids-id="src\compon..." data-orchids-name="nav" className="bg-white/8...">
+                            <div data-orchids-id="src\compon..." data-orchids-name="div" className="max-w-7xl ...">
+                              <div data-orchids-id="src\compon..." data-orchids-name="div" className="flex justi...">
+                                <div>
+                                <div data-orchids-id="src\compon..." data-orchids-name="div" className="hidden md:...">
+                                  <div>
+                                  <div data-orchids-id="src\compon..." data-orchids-name="div" className="flex items...">
+                                    <LanguageSwitcher data-orchids-id="src\compon..." data-orchids-name="LanguageSw...">
+                                      <div data-orchids-id="src\compon..." data-orchids-name="div" ...>
+                                        <button
+                                          data-orchids-id="src\components\LanguageSwitcher.tsx:10:6"
+                                          data-orchids-name="button"
+                                          onClick={function onClick}
+                                          className="px-3 py-1 rounded-full text-xs font-bold transition-all bg-emeral..."
+-                                         data-orchid-ref="ref-pwiy8n6nps"
+                                        >
++                                         EN
+                                        <button
+                                          data-orchids-id="src\components\LanguageSwitcher.tsx:20:6"
+                                          data-orchids-name="button"
+                                          onClick={function onClick}
+                                          className="px-3 py-1 rounded-full text-xs font-bold transition-all text-emer..."
+-                                         data-orchid-ref="ref-9bdsnx07bm"
+                                        >
++                                         FR
+                                    <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" ...>
+                                     ... [truncated]
+2026-02-07T06:57:39.938Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <Head>
+      <link>
+      <script>
+      <script>
+      <script>
+      <RootLayout>
+        <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" suppressHydrationWarning={true}>
+          <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+            <Script>
+            <ErrorReporter>
+            <Script>
+            <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+              <VisitTracker>
+              <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                <nav data-orchids-id="src\compon..." data-orchids-name="nav" className="bg-white/8...">
+                  <div data-orchids-id="src\compon..." data-orchids-name="div" className="max-w-7xl ...">
+                    <div data-orchids-id="src\compon..." data-orchids-name="div" className="flex justi...">
+                      <div>
+                      <div>
+                      <div data-orchids-id="src\compon..." data-orchids-name="div" className="md:hidden ...">
+                        <LanguageSwitcher>
+                        <button data-orchids-id="src\compon..." data-orchids-name="button" onClick={function onClick} ...>
+                          <Menu data-orchids-id="src\compon..." data-orchids-name="Menu" className="w-6 h-6">
+                            <svg ref={null} xmlns="http://www..." width={24} height={24} viewBox="0 0 24 24" fill="none" ...>
+                              <path>
+                              <path
+                                d="M4 12h16"
+-                               data-orchid-ref="ref-coqpuv9ko5"
+                              >
+                              <path
+                                d="M4 19h16"
+-                               data-orchid-ref="ref-x7fhpe5p6r"
+                              >
+              ...
+                <LoadingBoundary loading={null}>
+                  <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+                    <RedirectBoundary>
+                      <RedirectErrorBoundary router={{...}}>
+                        <InnerLayoutRouter url="/admin/login" tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                          <ClientPageRoot Component={function AdminLogin} searchParams={{}} params={{}}>
+                            <AdminLogin params={Promise} searchParams={Promise}>
+                              <div
+                                data-orchids-id="src\app\admin\login\page.tsx:50:4"
+                                data-orchids-name="div"
+                                className="min-h-screen bg-gradient-to-br from-sage-950 via-sage-800 to-sage-700 flex ..."
+-                               data-orchid-ref="ref-msszuy0380"
+                              >
+                                <div
+                                  data-orchids-id="src\app\admin\login\page.tsx:51:6"
+                                  data-orchids-name="div"
+                                  className={"absolute inset-0 bg-[url('https://images.unsplash.com/photo-15093167852..."}
+-                                 data-orchid-ref="ref-7bu3fzy4b8"
+                                >
+                                <... [truncated]
+2026-02-07T07:00:16.543Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <OuterLayoutRouter parallelRouterKey="children" template={<RenderFromTemplateContext>}>
+      <RenderFromTemplateContext>
+        <ScrollAndFocusHandler segmentPath={[...]}>
+          <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+            <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+              <LoadingBoundary loading={null}>
+                <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url="/admin/login" tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function AdminLogin} searchParams={{}} params={{}}>
+                          <AdminLogin params={Promise} searchParams={Promise}>
+                            <div
+                              data-orchids-id="src\app\admin\login\page.tsx:50:4"
+                              data-orchids-name="div"
+                              className="min-h-screen bg-gradient-to-br from-sage-950 via-sage-800 to-sage-700 flex it..."
+-                             data-orchid-ref="ref-pcrjlcwl38"
+                            >
+                              <div
+                                data-orchids-id="src\app\admin\login\page.tsx:51:6"
+                                data-orchids-name="div"
+                                className={"absolute inset-0 bg-[url('https://images.unsplash.com/photo-1509316785289..."}
+-                               data-orchid-ref="ref-nq5lmijbq5"
+                              >
+                              <motion.div data-orchids-id="src\app\ad..." data-orchids-name="motion.div" ...>
+                                <div
+                                  data-orchids-id="src\app\admin\login\page.tsx:53:6"
+                                  data-orchids-name="motion.div"
+                                  className="w-full max-w-md relative z-10"
+                                  style={{opacity:0,transform:"translateY..."}}
+                                  ref={function useMotionRef.useCallback}
+-                                 data-orchid-ref="ref-59r5excb0a"
+                                >
+                                  <div
+                                    data-orchids-id="src\app\admin\login\page.tsx:58:8"
+                                    data-orchids-name="div"
+                                    className="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden"
+-                                   data-orchid-ref="ref-esk5sfpvdy"
+                                  >
+                                    <div
+                                      data-orchids-id="src\app\admin\login\page.tsx:59:12"
+                                      data-orchids-name="div"
+                                      className="bg-sage-800 p-10 text-center"
+-                                     data-orchid-ref="ref-yx6i8lu3zk"
+                                    >
+                                      <img
+                                        data-orchids-id="src\app\admin\login\page.tsx:60:14"
+                                        data-orchids-name="img"
+    ... [truncated]
+2026-02-07T07:10:51.880Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:11:00.111Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:13:13.024Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-xy6fyugzql"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-8ruoccfusn"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-6v6y55v0mb"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-ueoeqdbgf6"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-pzfxxg5bbq"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name=... [truncated]
+2026-02-07T07:13:18.875Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/news" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-0v0irniud7"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-kznm079ws8"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-52kevtvk4a"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-cgaqklk429"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" href="/" ...>
+                                        <a
+                                          data-orchids-id="src\components\Navbar.tsx:35:14"
+                                          data-orchids-name="Link"
+                                          className="flex items-center gap-3 group"
+                                          ref={function}
+                                   ... [truncated]
+2026-02-07T07:13:18.875Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/news" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchi...
+2026-02-07T06:42:15.499Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T06:49:51.054Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/admin/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-bems4p9wis"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-xv5ul3fnrg"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-zwe4720fog"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-v2igzcezci"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" href="/" ...>
+                                        <a
+                                          data-orchids-id="src\components\Navbar.tsx:35:14"
+                                          data-orchids-name="Link"
+                                          className="flex items-center gap-3 group"
+                                          ref={function}
+                            ... [truncated]
+2026-02-07T06:52:20.450Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-qf571iwa8b"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-brnbsnpc5f"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-jm3hk05nn7"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-pp8qvs041p"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-9uerwo1moo"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name=... [truncated]
+2026-02-07T06:56:17.994Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-u6l5amfsjj"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-x3vkc6vb04"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-jwd348y444"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-ojlemcllst"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" href="/" ...>
+                                        <a
+                                          data-orchids-id="src\components\Navbar.tsx:35:14"
+                                          data-orchids-name="Link"
+                                          className="flex items-center gap-3 group"
+                                          ref={function}
+                                       ... [truncated]
+2026-02-07T06:56:33.946Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+      <ReplaySsrOnlyErrors>
+      <DevRootHTTPAccessFallbackBoundary>
+        <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <Head>
+                <link>
+                <script>
+                <script>
+                <script>
+                <RootLayout>
+                  <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                    <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                      <Script>
+                      <ErrorReporter>
+                      <Script>
+                      <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                        <VisitTracker>
+                        <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                          <nav data-orchids-id="src\compon..." data-orchids-name="nav" className="bg-white/8...">
+                            <div data-orchids-id="src\compon..." data-orchids-name="div" className="max-w-7xl ...">
+                              <div data-orchids-id="src\compon..." data-orchids-name="div" className="flex justi...">
+                                <div>
+                                <div data-orchids-id="src\compon..." data-orchids-name="div" className="hidden md:...">
+                                  <div>
+                                  <div data-orchids-id="src\compon..." data-orchids-name="div" className="flex items...">
+                                    <LanguageSwitcher data-orchids-id="src\compon..." data-orchids-name="LanguageSw...">
+                                      <div data-orchids-id="src\compon..." data-orchids-name="div" ...>
+                                        <button
+                                          data-orchids-id="src\components\LanguageSwitcher.tsx:10:6"
+                                          data-orchids-name="button"
+                                          onClick={function onClick}
+                                          className="px-3 py-1 rounded-full text-xs font-bold transition-all bg-emeral..."
+-                                         data-orchid-ref="ref-pwiy8n6nps"
+                                        >
++                                         EN
+                                        <button
+                                          data-orchids-id="src\components\LanguageSwitcher.tsx:20:6"
+                                          data-orchids-name="button"
+                                          onClick={function onClick}
+                                          className="px-3 py-1 rounded-full text-xs font-bold transition-all text-emer..."
+-                                         data-orchid-ref="ref-9bdsnx07bm"
+                                        >
++                                         FR
+                                    <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" ...>
+                                     ... [truncated]
+2026-02-07T06:57:39.938Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RedirectErrorBoundary router={{...}}>
+      <Head>
+      <link>
+      <script>
+      <script>
+      <script>
+      <RootLayout>
+        <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" suppressHydrationWarning={true}>
+          <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+            <Script>
+            <ErrorReporter>
+            <Script>
+            <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+              <VisitTracker>
+              <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                <nav data-orchids-id="src\compon..." data-orchids-name="nav" className="bg-white/8...">
+                  <div data-orchids-id="src\compon..." data-orchids-name="div" className="max-w-7xl ...">
+                    <div data-orchids-id="src\compon..." data-orchids-name="div" className="flex justi...">
+                      <div>
+                      <div>
+                      <div data-orchids-id="src\compon..." data-orchids-name="div" className="md:hidden ...">
+                        <LanguageSwitcher>
+                        <button data-orchids-id="src\compon..." data-orchids-name="button" onClick={function onClick} ...>
+                          <Menu data-orchids-id="src\compon..." data-orchids-name="Menu" className="w-6 h-6">
+                            <svg ref={null} xmlns="http://www..." width={24} height={24} viewBox="0 0 24 24" fill="none" ...>
+                              <path>
+                              <path
+                                d="M4 12h16"
+-                               data-orchid-ref="ref-coqpuv9ko5"
+                              >
+                              <path
+                                d="M4 19h16"
+-                               data-orchid-ref="ref-x7fhpe5p6r"
+                              >
+              ...
+                <LoadingBoundary loading={null}>
+                  <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+                    <RedirectBoundary>
+                      <RedirectErrorBoundary router={{...}}>
+                        <InnerLayoutRouter url="/admin/login" tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                          <ClientPageRoot Component={function AdminLogin} searchParams={{}} params={{}}>
+                            <AdminLogin params={Promise} searchParams={Promise}>
+                              <div
+                                data-orchids-id="src\app\admin\login\page.tsx:50:4"
+                                data-orchids-name="div"
+                                className="min-h-screen bg-gradient-to-br from-sage-950 via-sage-800 to-sage-700 flex ..."
+-                               data-orchid-ref="ref-msszuy0380"
+                              >
+                                <div
+                                  data-orchids-id="src\app\admin\login\page.tsx:51:6"
+                                  data-orchids-name="div"
+                                  className={"absolute inset-0 bg-[url('https://images.unsplash.com/photo-15093167852..."}
+-                                 data-orchid-ref="ref-7bu3fzy4b8"
+                                >
+                                <... [truncated]
+2026-02-07T07:00:16.543Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <OuterLayoutRouter parallelRouterKey="children" template={<RenderFromTemplateContext>}>
+      <RenderFromTemplateContext>
+        <ScrollAndFocusHandler segmentPath={[...]}>
+          <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+            <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+              <LoadingBoundary loading={null}>
+                <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url="/admin/login" tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function AdminLogin} searchParams={{}} params={{}}>
+                          <AdminLogin params={Promise} searchParams={Promise}>
+                            <div
+                              data-orchids-id="src\app\admin\login\page.tsx:50:4"
+                              data-orchids-name="div"
+                              className="min-h-screen bg-gradient-to-br from-sage-950 via-sage-800 to-sage-700 flex it..."
+-                             data-orchid-ref="ref-pcrjlcwl38"
+                            >
+                              <div
+                                data-orchids-id="src\app\admin\login\page.tsx:51:6"
+                                data-orchids-name="div"
+                                className={"absolute inset-0 bg-[url('https://images.unsplash.com/photo-1509316785289..."}
+-                               data-orchid-ref="ref-nq5lmijbq5"
+                              >
+                              <motion.div data-orchids-id="src\app\ad..." data-orchids-name="motion.div" ...>
+                                <div
+                                  data-orchids-id="src\app\admin\login\page.tsx:53:6"
+                                  data-orchids-name="motion.div"
+                                  className="w-full max-w-md relative z-10"
+                                  style={{opacity:0,transform:"translateY..."}}
+                                  ref={function useMotionRef.useCallback}
+-                                 data-orchid-ref="ref-59r5excb0a"
+                                >
+                                  <div
+                                    data-orchids-id="src\app\admin\login\page.tsx:58:8"
+                                    data-orchids-name="div"
+                                    className="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden"
+-                                   data-orchid-ref="ref-esk5sfpvdy"
+                                  >
+                                    <div
+                                      data-orchids-id="src\app\admin\login\page.tsx:59:12"
+                                      data-orchids-name="div"
+                                      className="bg-sage-800 p-10 text-center"
+-                                     data-orchid-ref="ref-yx6i8lu3zk"
+                                    >
+                                      <img
+                                        data-orchids-id="src\app\admin\login\page.tsx:60:14"
+                                        data-orchids-name="img"
+    ... [truncated]
+2026-02-07T07:10:51.880Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:11:00.111Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:13:13.024Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-xy6fyugzql"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-8ruoccfusn"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-6v6y55v0mb"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-ueoeqdbgf6"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-pzfxxg5bbq"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name=... [truncated]
+2026-02-07T07:13:18.875Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/news" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-0v0irniud7"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-kznm079ws8"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-52kevtvk4a"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-cgaqklk429"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" href="/" ...>
+                                        <a
+                                          data-orchids-id="src\components\Navbar.tsx:35:14"
+                                          data-orchids-name="Link"
+                                          className="flex items-center gap-3 group"
+                                          ref={function}
+                                   ... [truncated]
+2026-02-07T07:19:31.457Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:19:42.761Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:21:47.440Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:13:18.875Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/news" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchi...
+2026-02-07T07:13:13.024Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-xy6fyugzql"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-8ruoccfusn"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-6v6y55v0mb"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-ueoeqdbgf6"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-pzfxxg5bbq"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name=... [truncated]
+2026-02-07T07:13:18.875Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/news" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-0v0irniud7"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-kznm079ws8"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-52kevtvk4a"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-cgaqklk429"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" href="/" ...>
+                                        <a
+                                          data-orchids-id="src\components\Navbar.tsx:35:14"
+                                          data-orchids-name="Link"
+                                          className="flex items-center gap-3 group"
+                                          ref={function}
+                                   ... [truncated]
+2026-02-07T07:19:31.457Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:19:42.761Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:21:47.440Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:32:10.373Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/news" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-qs0b5lzhhq"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-2vujua9ggl"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-z93xvfyjjj"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-i2f3esn6j9"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-jagzvcsvp6"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-n... [truncated]
+2026-02-07T07:32:25.300Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-oaoa6shez5"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-tc7pxo7hic"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-c1areudrtc"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-5dc74k5nrv"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" href="/" ...>
+                                        <a
+                                          data-orchids-id="src\components\Navbar.tsx:35:14"
+                                          data-orchids-name="Link"
+                                          className="flex items-center gap-3 group"
+                                          ref={function}
+                                       ... [truncated]
+2026-02-07T07:34:22.516Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:34:32.416Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:32:25.300Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-n...
+2026-02-07T07:13:18.875Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/news" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-0v0irniud7"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-kznm079ws8"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-52kevtvk4a"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-cgaqklk429"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" href="/" ...>
+                                        <a
+                                          data-orchids-id="src\components\Navbar.tsx:35:14"
+                                          data-orchids-name="Link"
+                                          className="flex items-center gap-3 group"
+                                          ref={function}
+                                   ... [truncated]
+2026-02-07T07:19:31.457Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:19:42.761Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:21:47.440Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:32:10.373Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/news" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-qs0b5lzhhq"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-2vujua9ggl"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-z93xvfyjjj"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-i2f3esn6j9"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-jagzvcsvp6"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-n... [truncated]
+2026-02-07T07:32:25.300Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-oaoa6shez5"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-tc7pxo7hic"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-c1areudrtc"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-5dc74k5nrv"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name="Link" href="/" ...>
+                                        <a
+                                          data-orchids-id="src\components\Navbar.tsx:35:14"
+                                          data-orchids-name="Link"
+                                          className="flex items-center gap-3 group"
+                                          ref={function}
+                                       ... [truncated]
+2026-02-07T07:34:22.516Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:34:32.416Z [console][error] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree.
+2026-02-07T07:37:15.707Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-p30azhj6aa"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la..." data-orchids-name="body" className="antialiase..." ...>
+                          <Script>
+                          <ErrorReporter>
+                          <Script>
+                          <I18nProvider data-orchids-id="src\app\la..." data-orchids-name="I18nProvider">
+                            <VisitTracker>
+                            <Navbar data-orchids-id="src\app\la..." data-orchids-name="Navbar">
+                              <nav
+                                data-orchids-id="src\components\Navbar.tsx:31:4"
+                                data-orchids-name="nav"
+                                className="bg-white/80 backdrop-blur-md border-b border-sage-100 sticky top-0 z-50"
+-                               data-orchid-ref="ref-92xmpl0yu4"
+                              >
+                                <div
+                                  data-orchids-id="src\components\Navbar.tsx:32:6"
+                                  data-orchids-name="div"
+                                  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+-                                 data-orchid-ref="ref-17kdrwf3b0"
+                                >
+                                  <div
+                                    data-orchids-id="src\components\Navbar.tsx:33:8"
+                                    data-orchids-name="div"
+                                    className="flex justify-between h-24"
+-                                   data-orchid-ref="ref-78hfa2qh6a"
+                                  >
+                                    <div
+                                      data-orchids-id="src\components\Navbar.tsx:34:12"
+                                      data-orchids-name="div"
+                                      className="flex items-center"
+-                                     data-orchid-ref="ref-lmeg6du2tk"
+                                    >
+                                      <LinkComponent data-orchids-id="src\compon..." data-orchids-name=... [truncated]
+2026-02-07T07:37:15.707Z [console][error] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head headCacheNode={{lazyData:null, ...}}>
+                      <__next_viewport_boundary__>
+                      <MetadataTree>
+                        <__next_metadata_boundary__>
+                          <__next_metadata_boundary__>
+                            <div
+                              hidden={true}
+-                             data-orchid-ref="ref-p30azhj6aa"
+                            >
+                    <link>
+                    <script>
+                    <script>
+                    <script>
+                    <RootLayout>
+                      <html data-orchids-id="src\app\la..." data-orchids-name="html" lang="en" ...>
+                        <body data-orchids-id="src\app\la....

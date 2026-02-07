@@ -5,10 +5,16 @@ import { useI18n } from "@/lib/i18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useState } from "react";
 import { Menu, X, Globe } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export function Navbar() {
   const { t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname === "/donate" || (pathname?.startsWith("/admin") && pathname !== "/admin/login")) {
+    return null;
+  }
 
     const navLinks = [
       { href: "/", label: 'nav.home' },

@@ -2,12 +2,20 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import PayPalDonateButton from "@/components/PayPalDonateButton";
+import dynamic from "next/dynamic";
+import { useI18n } from "@/lib/i18n";
+
+const PayPalDonateButton = dynamic(() => import("@/components/PayPalDonateButton"), {
+  ssr: false,
+  loading: () => <div className="h-14 bg-sage-100 rounded-lg animate-pulse" />,
+});
+
 import { supabase } from "@/lib/supabase";
 
 const DONATION_AMOUNTS = [10, 25, 50, 100];
 
 export default function DonatePage() {
+  const { t, language, setLanguage } = useI18n();
   const [showSuccess, setShowSuccess] = useState(false);
   const [donorName, setDonorName] = useState("");
   const [donorEmail, setDonorEmail] = useState("");
@@ -36,7 +44,7 @@ export default function DonatePage() {
           amount: parseFloat(data.amount),
           currency: data.currency,
           status: "completed",
-          paypal_order_id: data.orderId,
+          payment_id: data.orderId,
           donor_name: donorName || "Anonymous Donor",
           donor_email: donorEmail || "donor@example.com",
         },
@@ -76,26 +84,21 @@ export default function DonatePage() {
               />
             </svg>
           </div>
-          <h1 className="text-3xl font-bold text-sage-800 mb-4">Thank You!</h1>
+          <h1 className="text-3xl font-bold text-sage-800 mb-4">{t('donate.thanks')}</h1>
           <p className="text-sage-700 mb-6">
-            Your generous donation of{" "}
-            <span className="font-bold text-terracotta-600">
-              €{donationData?.amount || actualAmount}
-            </span>{" "}
-            will help protect Madagascar&apos;s endangered turtles. Every
-            contribution makes a difference in our conservation efforts.
+            {t('donate.thanksDesc')
+              .replace('{amount}', `€${donationData?.amount || actualAmount}`)}
           </p>
           <div className="bg-sage-50 rounded-lg p-4 mb-6">
             <p className="text-sm text-sage-600">
-              A confirmation email has been sent to{" "}
-              <span className="font-medium">{donorEmail}</span>.
+              {t('donate.emailSent').replace('{email}', donorEmail)}
             </p>
           </div>
           <Link
             href="/"
             className="inline-block bg-terracotta-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-terracotta-600 transition-colors"
           >
-            Return Home
+            {t('donate.returnHome')}
           </Link>
         </div>
       </div>
@@ -114,12 +117,36 @@ export default function DonatePage() {
                 className="h-12 w-auto"
               />
             </Link>
-            <Link
-              href="/"
-              className="text-terracotta-600 hover:text-terracotta-700 font-medium"
-            >
-              &larr; Back to Home
-            </Link>
+            <div className="flex items-center gap-6">
+              <div className="flex bg-sage-100 rounded-full p-1">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
+                    language === 'en'
+                      ? 'bg-white text-sage-800 shadow-sm'
+                      : 'text-sage-500 hover:text-sage-700'
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLanguage('fr')}
+                  className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
+                    language === 'fr'
+                      ? 'bg-white text-sage-800 shadow-sm'
+                      : 'text-sage-500 hover:text-sage-700'
+                  }`}
+                >
+                  FR
+                </button>
+              </div>
+              <Link
+                href="/"
+                className="text-terracotta-600 hover:text-terracotta-700 font-medium"
+              >
+                &larr; {t('donate.backHome')}
+              </Link>
+            </div>
           </div>
         </div>
       </header>
@@ -129,24 +156,23 @@ export default function DonatePage() {
           <div className="space-y-6">
             <div>
               <h1 className="text-4xl font-bold text-sage-800 mb-4">
-                Support Turtle Conservation
+                {t('donate.title')}
               </h1>
               <p className="text-lg text-sage-700">
-                Your donation directly supports our mission to protect
-                Madagascar&apos;s endangered turtle species and their habitats.
+                {t('donate.subtitle')}
               </p>
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-md">
               <h2 className="text-xl font-semibold text-sage-800 mb-4">
-                Your Impact
+                {t('donate.impactTitle')}
               </h2>
               <ul className="space-y-4">
                 {[
-                  { amount: "10€", desc: "Provides food for rescued turtles for one week" },
-                  { amount: "25€", desc: "Supports nest protection for one nesting season" },
-                  { amount: "50€", desc: "Funds community education workshops" },
-                  { amount: "100€", desc: "Sponsors habitat restoration for one hectare" },
+                  { amount: "10€", desc: t('donate.impact1') },
+                  { amount: "25€", desc: t('donate.impact2') },
+                  { amount: "50€", desc: t('donate.impact3') },
+                  { amount: "100€", desc: t('donate.impact4') },
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-8 h-8 bg-terracotta-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -176,25 +202,23 @@ export default function DonatePage() {
             </div>
 
             <div className="bg-sage-700 text-white rounded-xl p-6">
-              <h3 className="font-semibold mb-2">100% Secure Donation</h3>
+              <h3 className="font-semibold mb-2">{t('donate.secureTitle')}</h3>
               <p className="text-sage-100 text-sm">
-                Your payment information is encrypted and secure. Pay directly
-                with your credit or debit card - no PayPal account required.
-                Funds go directly to our association&apos;s PayPal account.
+                {t('donate.secureDesc')}
               </p>
             </div>
           </div>
 
           <div className="bg-white rounded-xl p-8 shadow-xl h-fit">
             <h2 className="text-2xl font-bold text-sage-800 mb-6 text-center">
-              Make a Donation
+              {t('donate.makeDonation')}
             </h2>
 
             {!formSubmitted ? (
               <form onSubmit={handleFormSubmit} className="space-y-5">
                 <div>
                   <label className="block text-sm font-medium text-sage-700 mb-2">
-                    Select Amount
+                    {t('donate.selectAmount')}
                   </label>
                   <div className="grid grid-cols-4 gap-2">
                     {DONATION_AMOUNTS.map((amt) => (
@@ -217,7 +241,7 @@ export default function DonatePage() {
                   </div>
                   <div className="mt-3">
                     <label className="block text-xs text-sage-500 mb-1">
-                      Or enter custom amount
+                      {t('donate.customAmountLabel')}
                     </label>
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sage-500 font-medium">
@@ -230,7 +254,7 @@ export default function DonatePage() {
                         value={customAmount}
                         onChange={(e) => setCustomAmount(e.target.value)}
                         className="w-full pl-8 pr-4 py-2 border border-sage-200 rounded-lg focus:ring-2 focus:ring-terracotta-500 focus:border-terracotta-500 outline-none transition-all"
-                        placeholder="Custom amount"
+                        placeholder={t('donate.customAmountPlaceholder')}
                       />
                     </div>
                   </div>
@@ -241,7 +265,7 @@ export default function DonatePage() {
                     htmlFor="name"
                     className="block text-sm font-medium text-sage-700 mb-1"
                   >
-                    Full Name
+                    {t('donate.fullName')}
                   </label>
                   <input
                     type="text"
@@ -258,7 +282,7 @@ export default function DonatePage() {
                     htmlFor="email"
                     className="block text-sm font-medium text-sage-700 mb-1"
                   >
-                    Email Address
+                    {t('donate.emailAddress')}
                   </label>
                   <input
                     type="email"
@@ -273,7 +297,7 @@ export default function DonatePage() {
 
                 <div className="bg-sage-50 rounded-lg p-3 text-center">
                   <p className="text-sage-700">
-                    Donation amount:{" "}
+                    {t('donate.donationAmount')}{" "}
                     <span className="font-bold text-terracotta-600 text-xl">
                       €{actualAmount.toFixed(2)}
                     </span>
@@ -285,7 +309,7 @@ export default function DonatePage() {
                   disabled={actualAmount <= 0}
                   className="w-full bg-sage-800 text-white py-3 rounded-lg font-bold hover:bg-sage-900 transition-colors shadow-lg disabled:opacity-50"
                 >
-                  Continue to Payment
+                  {t('donate.continue')}
                 </button>
               </form>
             ) : (
@@ -293,13 +317,13 @@ export default function DonatePage() {
                 <div className="bg-sage-50 rounded-lg p-4 mb-6 text-left">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-xs font-bold uppercase text-sage-400">
-                      Donation Details
+                      {t('donate.details')}
                     </span>
                     <button
                       onClick={() => setFormSubmitted(false)}
                       className="text-xs text-terracotta-600 hover:underline"
                     >
-                      Edit
+                      {t('donate.edit')}
                     </button>
                   </div>
                   <p className="font-bold text-sage-800">{donorName}</p>

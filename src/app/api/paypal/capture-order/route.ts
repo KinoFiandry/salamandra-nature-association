@@ -7,7 +7,18 @@ const PAYPAL_API_URL = process.env.PAYPAL_ENV === "production"
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const bodyText = await request.text();
+    if (!bodyText) {
+      return NextResponse.json({ error: "Empty request body" }, { status: 400 });
+    }
+    
+    let body;
+    try {
+      body = JSON.parse(bodyText);
+    } catch (e) {
+      return NextResponse.json({ error: "Invalid JSON in request body" }, { status: 400 });
+    }
+    
     const { orderId } = body;
 
     if (!orderId) {
