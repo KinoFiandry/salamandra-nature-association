@@ -10,6 +10,10 @@ import VisitTracker from "@/components/VisitTracker";
 export const metadata: Metadata = {
   title: "Madagascar Turtle Conservation NGO",
   description: "Official platform for turtle protection and conservation in Madagascar",
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({
