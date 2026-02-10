@@ -7,7 +7,7 @@ import { supabase } from "@/lib/supabase";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
     LayoutDashboard, 
-      Calendar as CalendarIcon, 
+      CalendarDays, 
       Video, 
       Handshake, 
       Plus, 
@@ -89,6 +89,7 @@ export default function AdminDashboard() {
   });
 
   const [showVideoForm, setShowVideoForm] = useState(false);
+  const [editingVideo, setEditingVideo] = useState<any>(null);
   const [newVideo, setNewVideo] = useState({
     title_en: "",
     title_fr: "",
@@ -98,6 +99,7 @@ export default function AdminDashboard() {
   });
 
   const [showPartnerForm, setShowPartnerForm] = useState(false);
+  const [editingPartner, setEditingPartner] = useState<any>(null);
   const [newPartner, setNewPartner] = useState({
     name: "",
     logo_url: "",
@@ -106,6 +108,7 @@ export default function AdminDashboard() {
   });
 
   const [showPhotoForm, setShowPhotoForm] = useState(false);
+  const [editingPhoto, setEditingPhoto] = useState<any>(null);
   const [newPhoto, setNewPhoto] = useState({
     caption_en: "",
     caption_fr: "",
@@ -216,51 +219,126 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleAddVideo = async () => {
-    const { error } = await supabase.from("videos").insert([newVideo]);
-    if (error) toast.error("Error adding video");
-    else {
-      await logAdminAction("Added Video", `Added video: ${newVideo.title_en}`);
-      toast.success("Video added successfully");
-      setShowVideoForm(false);
+    const resetVideoForm = () => {
       setNewVideo({ title_en: "", title_fr: "", url: "", thumbnail_url: "", category: "conservation" });
-      fetchData();
-    }
-  };
+      setEditingVideo(null);
+      setShowVideoForm(false);
+    };
 
-  const handleDeleteVideo = async (id: string) => {
-    if (confirm("Are you sure?")) {
-      const { error } = await supabase.from("videos").delete().eq("id", id);
-      if (error) toast.error("Error deleting video");
-      else {
+    const handleOpenEditVideo = (video: any) => {
+      setEditingVideo(video);
+      setNewVideo({
+        title_en: video.title_en,
+        title_fr: video.title_fr || "",
+        url: video.url,
+        thumbnail_url: video.thumbnail_url || "",
+        category: video.category || "conservation"
+      });
+      setShowVideoForm(true);
+    };
+
+    const handleSaveVideo = async () => {
+      if (!newVideo.title_en.trim() || !newVideo.url.trim()) {
+        toast.error("Title and URL are required");
+        return;
+      }
+      try {
+        if (editingVideo) {
+          const { error } = await supabase.from("videos").update(newVideo).eq("id", editingVideo.id);
+          if (error) throw error;
+          // Sync to media table
+          await supabase.from("media").update({
+            url: newVideo.url,
+            caption_en: newVideo.title_en,
+            caption_fr: newVideo.title_fr,
+            thumbnail_url: newVideo.thumbnail_url || "",
+          }).eq("id", editingVideo.id);
+          await logAdminAction("Updated Video", `Updated video: ${newVideo.title_en}`);
+          toast.success("Video updated successfully");
+        } else {
+          const { data, error } = await supabase.from("videos").insert([newVideo]).select().single();
+          if (error) throw error;
+          // Also insert into media table with same id
+          await supabase.from("media").insert([{
+            id: data.id,
+            type: "video",
+            url: newVideo.url,
+            caption_en: newVideo.title_en,
+            caption_fr: newVideo.title_fr,
+            thumbnail_url: newVideo.thumbnail_url || "",
+          }]);
+          await logAdminAction("Added Video", `Added video: ${newVideo.title_en}`);
+          toast.success("Video added successfully");
+        }
+        resetVideoForm();
+        fetchData();
+      } catch (error: any) {
+        toast.error(error.message || "Error saving video");
+      }
+    };
+
+    const handleDeleteVideo = async (id: string) => {
+      if (confirm("Are you sure?")) {
+        const { error } = await supabase.from("videos").delete().eq("id", id);
+        if (error) { toast.error("Error deleting video"); return; }
+        // Also delete from media table
+        await supabase.from("media").delete().eq("id", id);
         await logAdminAction("Deleted Video", `Deleted video ID: ${id}`);
         fetchData();
       }
-    }
-  };
+    };
 
-  const handleAddPartner = async () => {
-    const { error } = await supabase.from("partners").insert([newPartner]);
-    if (error) toast.error("Error adding partner");
-    else {
-      await logAdminAction("Added Partner", `Added partner: ${newPartner.name}`);
-      toast.success("Partner added successfully");
-      setShowPartnerForm(false);
+    const resetPartnerForm = () => {
       setNewPartner({ name: "", logo_url: "", website_url: "", type: "international" });
-      fetchData();
-    }
-  };
+      setEditingPartner(null);
+      setShowPartnerForm(false);
+    };
 
-  const handleDeletePartner = async (id: string) => {
-    if (confirm("Are you sure?")) {
-      const { error } = await supabase.from("partners").delete().eq("id", id);
-      if (error) toast.error("Error deleting partner");
-      else {
-        await logAdminAction("Deleted Partner", `Deleted partner ID: ${id}`);
-        fetchData();
+    const handleOpenEditPartner = (partner: any) => {
+      setEditingPartner(partner);
+      setNewPartner({
+        name: partner.name,
+        logo_url: partner.logo_url || "",
+        website_url: partner.website_url || "",
+        type: partner.type || "international"
+      });
+      setShowPartnerForm(true);
+    };
+
+    const handleSavePartner = async () => {
+      if (!newPartner.name.trim()) {
+        toast.error("Partner name is required");
+        return;
       }
-    }
-  };
+      try {
+        if (editingPartner) {
+          const { error } = await supabase.from("partners").update(newPartner).eq("id", editingPartner.id);
+          if (error) throw error;
+          await logAdminAction("Updated Partner", `Updated partner: ${newPartner.name}`);
+          toast.success("Partner updated successfully");
+        } else {
+          const { error } = await supabase.from("partners").insert([newPartner]);
+          if (error) throw error;
+          await logAdminAction("Added Partner", `Added partner: ${newPartner.name}`);
+          toast.success("Partner added successfully");
+        }
+        resetPartnerForm();
+        fetchData();
+      } catch (error: any) {
+        toast.error(error.message || "Error saving partner");
+      }
+    };
+
+    const handleDeletePartner = async (id: string) => {
+      if (confirm("Are you sure?")) {
+        const { error } = await supabase.from("partners").delete().eq("id", id);
+        if (error) toast.error("Error deleting partner");
+        else {
+          await logAdminAction("Deleted Partner", `Deleted partner ID: ${id}`);
+          fetchData();
+        }
+      }
+    };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -268,49 +346,81 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleAddPhoto = async () => {
-    if (!selectedFile) {
-      toast.error("Please select a photo to upload");
-      return;
-    }
-
-    setUploading(true);
-    try {
-      const fileExt = selectedFile.name.split('.').pop();
-      const fileName = `${Date.now()}.${fileExt}`;
-      const filePath = `gallery/${fileName}`;
-
-      const { error: uploadError } = await supabase.storage
-        .from('photos')
-        .upload(filePath, selectedFile);
-
-      if (uploadError) throw uploadError;
-
-      const { data: { publicUrl } } = supabase.storage
-        .from('photos')
-        .getPublicUrl(filePath);
-
-        const { error: dbError } = await supabase.from("media").insert([{
-          type: "photo",
-          url: publicUrl,
-          caption_en: newPhoto.caption_en,
-          caption_fr: newPhoto.caption_fr
-        }]);
-
-        if (dbError) throw dbError;
-
-        await logAdminAction("Added Photo", `Uploaded new photo: ${newPhoto.caption_en || 'No caption'}`);
-        toast.success("Photo uploaded successfully");
-      setShowPhotoForm(false);
+    const resetPhotoForm = () => {
       setNewPhoto({ caption_en: "", caption_fr: "", url: "" });
       setSelectedFile(null);
-      fetchData();
-    } catch (error: any) {
-      toast.error(error.message || "Error uploading photo");
-    } finally {
-      setUploading(false);
-    }
-  };
+      setEditingPhoto(null);
+      setShowPhotoForm(false);
+    };
+
+    const handleOpenEditPhoto = (photo: any) => {
+      setEditingPhoto(photo);
+      setNewPhoto({
+        caption_en: photo.caption_en || "",
+        caption_fr: photo.caption_fr || "",
+        url: photo.url || ""
+      });
+      setSelectedFile(null);
+      setShowPhotoForm(true);
+    };
+
+    const handleSavePhoto = async () => {
+      if (!editingPhoto && !selectedFile) {
+        toast.error("Please select a photo to upload");
+        return;
+      }
+
+      setUploading(true);
+      try {
+        let photoUrl = editingPhoto?.url || "";
+
+        if (selectedFile) {
+          const fileExt = selectedFile.name.split('.').pop();
+          const fileName = `${Date.now()}.${fileExt}`;
+          const filePath = `gallery/${fileName}`;
+
+          const { error: uploadError } = await supabase.storage
+            .from('photos')
+            .upload(filePath, selectedFile);
+
+          if (uploadError) throw uploadError;
+
+          const { data: { publicUrl } } = supabase.storage
+            .from('photos')
+            .getPublicUrl(filePath);
+
+          photoUrl = publicUrl;
+        }
+
+        if (editingPhoto) {
+          const { error: dbError } = await supabase.from("media").update({
+            url: photoUrl,
+            caption_en: newPhoto.caption_en,
+            caption_fr: newPhoto.caption_fr
+          }).eq("id", editingPhoto.id);
+          if (dbError) throw dbError;
+          await logAdminAction("Updated Photo", `Updated photo: ${newPhoto.caption_en || editingPhoto.id}`);
+          toast.success("Photo updated successfully");
+        } else {
+          const { error: dbError } = await supabase.from("media").insert([{
+            type: "photo",
+            url: photoUrl,
+            caption_en: newPhoto.caption_en,
+            caption_fr: newPhoto.caption_fr
+          }]);
+          if (dbError) throw dbError;
+          await logAdminAction("Added Photo", `Uploaded new photo: ${newPhoto.caption_en || 'No caption'}`);
+          toast.success("Photo uploaded successfully");
+        }
+
+        resetPhotoForm();
+        fetchData();
+      } catch (error: any) {
+        toast.error(error.message || "Error saving photo");
+      } finally {
+        setUploading(false);
+      }
+    };
 
     const handleDeletePhoto = async (id: string, url: string) => {
       if (confirm("Are you sure?")) {
@@ -586,7 +696,7 @@ export default function AdminDashboard() {
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
             <TabsList className="bg-white p-1 rounded-2xl border border-sage-100 shadow-sm h-16 w-full md:w-auto overflow-x-auto flex-nowrap">
               <TabsTrigger value="events" className="rounded-xl px-8 h-full data-[state=active]:bg-terracotta-500 data-[state=active]:text-white font-bold transition-all whitespace-nowrap">
-                  <CalendarIcon className="w-4 h-4 mr-2" /> {t('admin.tabs.events')}
+                    <CalendarDays className="w-5 h-5 mr-2" /> {t('admin.tabs.events')}
                 </TabsTrigger>
                   <TabsTrigger value="news" className="rounded-xl px-8 h-full data-[state=active]:bg-terracotta-500 data-[state=active]:text-white font-bold transition-all whitespace-nowrap">
                     <Newspaper className="w-4 h-4 mr-2" /> {t('admin.tabs.news')}
@@ -735,37 +845,46 @@ export default function AdminDashboard() {
               </TabsContent>
 
               <TabsContent value="videos" className="space-y-6">
-            <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-bold text-sage-800">{t('admin.videos.manage')}</h2>
-                <Button onClick={() => setShowVideoForm(true)} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold">
-                  <Plus className="w-4 h-4 mr-2" /> {t('admin.videos.add')}
-              </Button>
-            </div>
+              <div className="flex justify-between items-center">
+                  <h2 className="text-2xl font-bold text-sage-800">{t('admin.videos.manage')}</h2>
+                  <Button onClick={() => { resetVideoForm(); setShowVideoForm(true); }} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold">
+                    <Plus className="w-4 h-4 mr-2" /> {t('admin.videos.add')}
+                </Button>
+              </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {videos.map(video => (
-                <div key={video.id} className="bg-white rounded-[2rem] border border-sage-100 shadow-sm overflow-hidden group">
-                  <div className="aspect-video bg-slate-200 relative">
-                    {video.thumbnail_url && <img src={video.thumbnail_url} alt={video.title_en} className="w-full h-full object-cover" />}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Button variant="destructive" size="icon" onClick={() => handleDeleteVideo(video.id)}>
-                        <Trash2 className="w-5 h-5" />
-                      </Button>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {videos.map(video => (
+                  <div key={video.id} className="bg-white rounded-[2rem] border border-sage-100 shadow-sm overflow-hidden group">
+                    <div className="aspect-video bg-slate-200 relative">
+                      {video.thumbnail_url && <img src={video.thumbnail_url} alt={video.title_en} className="w-full h-full object-cover" />}
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                        <Button variant="outline" size="icon" onClick={() => handleOpenEditVideo(video)} className="bg-white/90 hover:bg-white">
+                          <Edit3 className="w-5 h-5 text-terracotta-500" />
+                        </Button>
+                        <Button variant="destructive" size="icon" onClick={() => handleDeleteVideo(video.id)}>
+                          <Trash2 className="w-5 h-5" />
+                        </Button>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-bold text-sage-800 line-clamp-1">{video.title_en}</h3>
+                      <p className="text-xs text-terracotta-500 font-bold uppercase tracking-wider mt-2">{video.category}</p>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="font-bold text-sage-800 line-clamp-1">{video.title_en}</h3>
-                    <p className="text-xs text-terracotta-500 font-bold uppercase tracking-wider mt-2">{video.category}</p>
+                ))}
+                {videos.length === 0 && (
+                  <div className="col-span-full text-center py-12 text-sage-400">
+                    <Video className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                    <p>No videos yet. Add your first video!</p>
                   </div>
-                </div>
-              ))}
-            </div>
-            </TabsContent>
+                )}
+              </div>
+              </TabsContent>
 
           <TabsContent value="photos" className="space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold text-sage-800">Manage Photos</h2>
-              <Button onClick={() => setShowPhotoForm(true)} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold">
+              <Button onClick={() => { resetPhotoForm(); setShowPhotoForm(true); }} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold">
                 <Plus className="w-4 h-4 mr-2" /> Add Photo
               </Button>
             </div>
@@ -775,7 +894,10 @@ export default function AdminDashboard() {
                 <div key={photo.id} className="bg-white rounded-[2rem] border border-sage-100 shadow-sm overflow-hidden group">
                   <div className="aspect-square bg-slate-200 relative">
                     <img src={photo.url} alt={photo.caption_en || "Photo"} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                      <Button variant="outline" size="icon" onClick={() => handleOpenEditPhoto(photo)} className="bg-white/90 hover:bg-white">
+                        <Edit3 className="w-5 h-5 text-terracotta-500" />
+                      </Button>
                       <Button variant="destructive" size="icon" onClick={() => handleDeletePhoto(photo.id, photo.url)}>
                         <Trash2 className="w-5 h-5" />
                       </Button>
@@ -800,7 +922,7 @@ export default function AdminDashboard() {
             <TabsContent value="partners" className="space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold text-sage-800">Manage Partners</h2>
-              <Button onClick={() => setShowPartnerForm(true)} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold">
+              <Button onClick={() => { resetPartnerForm(); setShowPartnerForm(true); }} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold">
                 <Plus className="w-4 h-4 mr-2" /> Add Partner
               </Button>
             </div>
@@ -808,18 +930,27 @@ export default function AdminDashboard() {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
               {partners.map(partner => (
                 <div key={partner.id} className="bg-white p-6 rounded-[2rem] border border-sage-100 shadow-sm relative group text-center">
-                  <button 
-                    onClick={() => handleDeletePartner(partner.id)}
-                    className="absolute top-4 right-4 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity flex gap-1">
+                    <button onClick={() => handleOpenEditPartner(partner)} className="text-terracotta-400 hover:text-terracotta-600">
+                      <Edit3 className="w-4 h-4" />
+                    </button>
+                    <button onClick={() => handleDeletePartner(partner.id)} className="text-red-400 hover:text-red-600">
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
                   <div className="w-16 h-16 mx-auto mb-4 bg-sage-50 rounded-xl flex items-center justify-center">
                     {partner.logo_url ? <img src={partner.logo_url} alt={partner.name} className="w-full h-full object-contain" /> : <Handshake className="w-8 h-8 text-sage-200" />}
                   </div>
                   <h3 className="font-bold text-sage-800 text-sm">{partner.name}</h3>
+                  <p className="text-xs text-sage-400 mt-1">{partner.type}</p>
                 </div>
               ))}
+              {partners.length === 0 && (
+                <div className="col-span-full text-center py-12 text-sage-400">
+                  <Handshake className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                  <p>No partners yet. Add your first partner!</p>
+                </div>
+              )}
             </div>
               </TabsContent>
 
@@ -1075,18 +1206,24 @@ export default function AdminDashboard() {
 
         {showVideoForm && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-sage-950/60 backdrop-blur-sm" onClick={() => setShowVideoForm(false)} />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-sage-950/60 backdrop-blur-sm" onClick={resetVideoForm} />
             <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className="bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl relative z-10 overflow-hidden">
               <div className="bg-sage-800 p-8 text-white flex justify-between items-center">
-                <h2 className="text-2xl font-black">Add New Video</h2>
-                <Button variant="ghost" size="icon" onClick={() => setShowVideoForm(false)} className="text-white/60 hover:text-white">
+                <h2 className="text-2xl font-black">{editingVideo ? "Edit Video" : "Add New Video"}</h2>
+                <Button variant="ghost" size="icon" onClick={resetVideoForm} className="text-white/60 hover:text-white">
                   <X className="w-6 h-6" />
                 </Button>
               </div>
               <div className="p-8 space-y-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-sage-800">Title (EN)</label>
-                  <Input value={newVideo.title_en} onChange={e => setNewVideo({...newVideo, title_en: e.target.value})} placeholder="Video title" className="rounded-xl" />
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-sage-800">Title (EN)</label>
+                    <Input value={newVideo.title_en} onChange={e => setNewVideo({...newVideo, title_en: e.target.value})} placeholder="Video title" className="rounded-xl" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-sage-800">Title (FR)</label>
+                    <Input value={newVideo.title_fr} onChange={e => setNewVideo({...newVideo, title_fr: e.target.value})} placeholder="Titre de la vidéo" className="rounded-xl" />
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-sage-800">Video URL (YouTube/Vimeo)</label>
@@ -1110,8 +1247,8 @@ export default function AdminDashboard() {
                 </div>
               </div>
               <div className="p-8 bg-slate-50 flex justify-end gap-4 border-t border-sage-100">
-                <Button variant="ghost" onClick={() => setShowVideoForm(false)} className="rounded-xl font-bold">Cancel</Button>
-                <Button onClick={handleAddVideo} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold px-8">Save Video</Button>
+                <Button variant="ghost" onClick={resetVideoForm} className="rounded-xl font-bold">Cancel</Button>
+                <Button onClick={handleSaveVideo} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold px-8">{editingVideo ? "Update Video" : "Save Video"}</Button>
               </div>
             </motion.div>
           </div>
@@ -1119,11 +1256,11 @@ export default function AdminDashboard() {
 
         {showPartnerForm && (
             <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-sage-950/60 backdrop-blur-sm" onClick={() => setShowPartnerForm(false)} />
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-sage-950/60 backdrop-blur-sm" onClick={resetPartnerForm} />
               <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className="bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl relative z-10 overflow-hidden">
                 <div className="bg-sage-800 p-8 text-white flex justify-between items-center">
-                  <h2 className="text-2xl font-black">Add New Partner</h2>
-                  <Button variant="ghost" size="icon" onClick={() => setShowPartnerForm(false)} className="text-white/60 hover:text-white">
+                  <h2 className="text-2xl font-black">{editingPartner ? "Edit Partner" : "Add New Partner"}</h2>
+                  <Button variant="ghost" size="icon" onClick={resetPartnerForm} className="text-white/60 hover:text-white">
                     <X className="w-6 h-6" />
                   </Button>
                 </div>
@@ -1136,10 +1273,13 @@ export default function AdminDashboard() {
                     <label className="text-sm font-bold text-sage-800">Website URL</label>
                     <Input value={newPartner.website_url} onChange={e => setNewPartner({...newPartner, website_url: e.target.value})} placeholder="https://..." className="rounded-xl" />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-sage-800">Logo URL</label>
-                    <Input value={newPartner.logo_url} onChange={e => setNewPartner({...newPartner, logo_url: e.target.value})} placeholder="Image URL for logo" className="rounded-xl" />
-                  </div>
+                  <DragDropImageUpload
+                      value={newPartner.logo_url}
+                      onChange={(url) => setNewPartner({...newPartner, logo_url: url})}
+                      bucket="photos"
+                      folder="partners"
+                      label="Partner Logo"
+                    />
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-sage-800">Type</label>
                     <select 
@@ -1154,8 +1294,8 @@ export default function AdminDashboard() {
                   </div>
                 </div>
                 <div className="p-8 bg-slate-50 flex justify-end gap-4 border-t border-sage-100">
-                  <Button variant="ghost" onClick={() => setShowPartnerForm(false)} className="rounded-xl font-bold">Cancel</Button>
-                  <Button onClick={handleAddPartner} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold px-8">Save Partner</Button>
+                  <Button variant="ghost" onClick={resetPartnerForm} className="rounded-xl font-bold">Cancel</Button>
+                  <Button onClick={handleSavePartner} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold px-8">{editingPartner ? "Update Partner" : "Save Partner"}</Button>
                 </div>
               </motion.div>
             </div>
@@ -1163,17 +1303,23 @@ export default function AdminDashboard() {
 
           {showPhotoForm && (
             <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-sage-950/60 backdrop-blur-sm" onClick={() => setShowPhotoForm(false)} />
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-sage-950/60 backdrop-blur-sm" onClick={resetPhotoForm} />
               <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className="bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl relative z-10 overflow-hidden">
                 <div className="bg-sage-800 p-8 text-white flex justify-between items-center">
-                  <h2 className="text-2xl font-black">Add New Photo</h2>
-                  <Button variant="ghost" size="icon" onClick={() => setShowPhotoForm(false)} className="text-white/60 hover:text-white">
+                  <h2 className="text-2xl font-black">{editingPhoto ? "Edit Photo" : "Add New Photo"}</h2>
+                  <Button variant="ghost" size="icon" onClick={resetPhotoForm} className="text-white/60 hover:text-white">
                     <X className="w-6 h-6" />
                   </Button>
                 </div>
                 <div className="p-8 space-y-6">
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-sage-800">Photo File</label>
+                      {editingPhoto && editingPhoto.url && !selectedFile && (
+                        <div className="mb-2 rounded-xl overflow-hidden border border-sage-200">
+                          <img src={editingPhoto.url} alt="Current" className="w-full h-40 object-cover" />
+                          <p className="text-xs text-sage-400 p-2 text-center">Current photo (drop a new file to replace)</p>
+                        </div>
+                      )}
                       <div
                         onDrop={(e) => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f) setSelectedFile(f); }}
                         onDragOver={(e) => e.preventDefault()}
@@ -1212,8 +1358,8 @@ export default function AdminDashboard() {
                   </div>
                 </div>
                 <div className="p-8 bg-slate-50 flex justify-end gap-4 border-t border-sage-100">
-                  <Button variant="ghost" onClick={() => { setShowPhotoForm(false); setSelectedFile(null); }} className="rounded-xl font-bold">Cancel</Button>
-                  <Button onClick={handleAddPhoto} disabled={uploading || !selectedFile} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold px-8 disabled:opacity-50">
+                  <Button variant="ghost" onClick={resetPhotoForm} className="rounded-xl font-bold">Cancel</Button>
+                  <Button onClick={handleSavePhoto} disabled={uploading || (!editingPhoto && !selectedFile)} className="bg-terracotta-500 hover:bg-sage-600 rounded-xl font-bold px-8 disabled:opacity-50">
                     {uploading ? (
                       <span className="flex items-center gap-2">
                         <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
@@ -1222,7 +1368,7 @@ export default function AdminDashboard() {
                         </svg>
                         Uploading...
                       </span>
-                    ) : "Upload Photo"}
+                    ) : editingPhoto ? "Update Photo" : "Upload Photo"}
                   </Button>
                 </div>
               </motion.div>

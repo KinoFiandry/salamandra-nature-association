@@ -6,6 +6,22 @@ import { supabase } from "@/lib/supabase";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, Play, Image as ImageIcon, X } from "lucide-react";
 
+function getEmbedUrl(url: string): string {
+  if (!url) return url;
+  // Already an embed URL
+  if (url.includes('/embed/')) return url;
+  // youtube.com/watch?v=ID
+  const watchMatch = url.match(/(?:youtube\.com\/watch\?v=|youtube\.com\/watch\?.+&v=)([^&]+)/);
+  if (watchMatch) return `https://www.youtube.com/embed/${watchMatch[1]}`;
+  // youtu.be/ID
+  const shortMatch = url.match(/youtu\.be\/([^?&]+)/);
+  if (shortMatch) return `https://www.youtube.com/embed/${shortMatch[1]}`;
+  // youtube.com/shorts/ID
+  const shortsMatch = url.match(/youtube\.com\/shorts\/([^?&]+)/);
+  if (shortsMatch) return `https://www.youtube.com/embed/${shortsMatch[1]}`;
+  return url;
+}
+
 interface MediaItem {
   id: string;
   type: 'video' | 'photo';
@@ -112,12 +128,12 @@ export default function MediaPage() {
             >
               {selectedMedia.type === 'video' ? (
                 <div className="aspect-video w-full rounded-3xl overflow-hidden shadow-2xl bg-black">
-                  <iframe
-                    src={selectedMedia.url}
-                    className="w-full h-full"
-                    allowFullScreen
-                    allow="autoplay; encrypted-media"
-                  />
+                    <iframe
+                      src={getEmbedUrl(selectedMedia.url)}
+                      className="w-full h-full"
+                      allowFullScreen
+                      allow="autoplay; encrypted-media"
+                    />
                 </div>
               ) : (
                 <img
