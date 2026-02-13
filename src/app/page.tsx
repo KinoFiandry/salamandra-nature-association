@@ -245,10 +245,10 @@ export default function Home() {
             className="grid grid-cols-2 md:grid-cols-4 gap-12"
           >
             {[
-              { val: "15+", label: 'impact.years' },
-              { val: "5,000+", label: 'impact.turtles' },
+              { val: "20+", label: 'impact.years' },
+              { val: "3,000+", label: 'impact.turtles' },
               { val: "50+", label: 'impact.communities' },
-              { val: "1,000+", label: 'impact.hectares' }
+              { val: "10+", label: 'impact.hectares' }
             ].map((stat, i) => (
               <motion.div key={i} variants={item} className="text-center">
                 <div className="text-4xl md:text-5xl font-black text-terracotta-400 mb-2">{stat.val}</div>
